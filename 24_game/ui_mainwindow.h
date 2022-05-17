@@ -60,7 +60,7 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->setEnabled(true);
-        MainWindow->resize(859, 480);
+        MainWindow->resize(860, 458);
         QFont font;
         font.setPointSize(9);
         font.setBold(false);
@@ -324,7 +324,7 @@ public:
         but_file->raise();
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 859, 25));
+        menuBar->setGeometry(QRect(0, 0, 860, 25));
         menuBar->setDefaultUp(false);
         menuBar->setNativeMenuBar(true);
         MainWindow->setMenuBar(menuBar);

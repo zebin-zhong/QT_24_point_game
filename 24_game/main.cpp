@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 //    qreal  cy = GetSystemMetrics(SM_CYSCREEN);
 //    qreal scale = cx / cy;
 //    qputenv("QT_SCALE_FACTOR", QString::number(scale).toLatin1());
-   qputenv("QT_SCALE_FACTOR", "1.5");
+//   qputenv("QT_SCALE_FACTOR", "1.5");//按比例缩放窗口，目前是1.5倍，默认1倍
     QApplication a(argc, argv);
     MainWindow w;
     w.show();

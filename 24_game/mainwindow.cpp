@@ -242,14 +242,16 @@ bool MainWindow::judge(string res)//可能还存在“10”这个数字拆成1�
 {
     int num_i = 0;
     QString num_curr = "0";
+    QString ops_curr = " ";
+    QString ops_next = " ";
     string ops = "+-*/()";
+    string ops_count = "+-*/";
     int num_array_len = 4;
     /*复制一个数组变量*/
     int new_array[4];
     for(int i=0; i<4; i++)
          new_array[i] = num_array[i] ;
 
-    int fine_times = 0;
     /*将生成的四个随机数组合成字符串用于判断*/
     string rand_str;
     QString num_1 = QString::number(num_array[0]);
@@ -327,11 +329,20 @@ bool MainWindow::judge(string res)//可能还存在“10”这个数字拆成1�
         /*如果是操作符*/
         else
         {
-            /*如果下一个字符还是操作符,或者操作符位于第一个或者最后一个，报错*/
-            if (ops.find(res[j+1]) != ops.npos || j == 0 || j == res.size())
+            ops_curr = res[j];  //当前扫描到的操作符
+            ops_next = res[j+1];  //下一个操作符
+
+            /*如果操作符位于第一个且第一个字符不是 "("，报错*/
+            if (j == 0 && ops_curr != "(")
             {
                 return false;
             }
+            /*如果操作符位于最后一个且不是 ")"， 报错*/
+            if (j == res.size() && ops_curr != ")")
+            {
+                return false;
+            }
+
         }
     }
     if (num_i != 4)
