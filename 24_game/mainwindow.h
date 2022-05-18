@@ -65,6 +65,7 @@ private:
     void rand_num_display();
     void mousePressEvent(QMouseEvent *event);
     void mouseReleaseEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent* e) override;
     void music_play();
     void gif_play();
 };

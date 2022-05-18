@@ -42,6 +42,20 @@ ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
+    /*一些ui设置*/
+    this->ui_init();
+
+}
+
+/*析构函数*/
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+/*一些ui初始化设置*/
+void MainWindow::ui_init()
+{
     /*设置窗体的大小（规定窗体大小)*/
     setFixedSize(860, 458);
 
@@ -51,8 +65,25 @@ ui(new Ui::MainWindow)
     /*改变鼠标形状*/
     this->mouse_image(":/photo/finger_1.png");
 
-    /*一些ui设置*/
-    this->ui_init();
+    ui->but1->setText("开始游戏");
+    ui->but1->setStyleSheet("border-image: url(:/photo/button.png); color:white");
+    ui->but2->setStyleSheet("border-image: url(:/photo/button_box.png); color:white");
+    ui->label_music_name->setStyleSheet("color:white");
+    ui->label0->setStyleSheet("color:white");
+    ui->lineEdit->setStyleSheet("background:transparent;border-width:0;border-style:outset; color:white");//设置无边框且透明背景
+    ui->label1->setText("0");
+    ui->but2->setVisible(false);
+
+    /*鼠标移动到鸡的身上显示文字，使用鼠标移动事件*/
+    ui->label_text->setVisible(false);
+    ui->centralWidget->setMouseTracking(true);//先把QMainWindow的CentrolWidget使用setMouseTracking(true)开启移动监视
+    this->setMouseTracking(true);//这是激活整个窗体的鼠标追踪,不这样做的话就只能一直点击鼠标一个按钮才能触发移动事件
+    ui->label_rooster->setMouseTracking(true);//进入某个按钮时，鼠标追踪属性失效，因此也需要激活该按钮的鼠标追踪功能
+
+    ui->label_music_time->setStyleSheet("color: white");
+    ui->label1->setStyleSheet("color: white");
+    ui->label2->setStyleSheet("color: white");
+    ui->label3->setStyleSheet("color: white");
 
     /*歌曲信息滚动显示*/
     QTimer *pTimer = new QTimer(this);
@@ -70,31 +101,6 @@ ui(new Ui::MainWindow)
 
     /*播放背景音乐*/
     this->music_play();
-
-}
-
-/*析构函数*/
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
-
-/*一些ui初始化设置*/
-void MainWindow::ui_init()
-{
-    ui->but1->setText("开始游戏");
-    ui->but1->setStyleSheet("border-image: url(:/photo/button.png); color:white");
-    ui->but2->setStyleSheet("border-image: url(:/photo/button_box.png); color:white");
-    ui->label_music_name->setStyleSheet("color:white");
-    ui->label0->setStyleSheet("color:white");
-    ui->lineEdit->setStyleSheet("background:transparent;border-width:0;border-style:outset; color:white");//设置无边框且透明背景
-    ui->label1->setText("0");
-    ui->but2->setVisible(false);
-
-    ui->label_music_time->setStyleSheet("color: white");
-    ui->label1->setStyleSheet("color: white");
-    ui->label2->setStyleSheet("color: white");
-    ui->label3->setStyleSheet("color: white");
 }
 
 /*音乐信息滚动显示*/
@@ -386,6 +392,7 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
     if(event->button() == Qt::LeftButton)
     {
         this->mouse_image(":/photo/finger_2.png");
+        ui->label_text->setVisible (false);
     }
 
 }
@@ -404,6 +411,18 @@ void MainWindow::on_but_help_clicked()
     sBox.setWindowTitle("游戏规则");
     sBox.setText(tips);
     sBox.exec();
+}
+
+void MainWindow::mouseMoveEvent(QMouseEvent* event)
+{
+    if(ui->label_rooster->geometry().contains(this->mapFromGlobal(QCursor::pos())))
+        ui->label_text->setVisible (true);
+    else
+    {
+         ui->label_text->setVisible (false);
+         event->ignore();
+    }
+
 }
 
 /*默认播放背景音乐*/
@@ -435,12 +454,12 @@ void MainWindow::gif_play()
     gif1->start();
 
     QMovie *gif2 = new QMovie(":/photo/jige.gif");
-    ui->label_flower->setMovie(gif2);
+    ui->label_rooster->setMovie(gif2);
     gif2->setScaledSize(QSize(40,40));
     gif2->start();
 
-    QMovie *gif3 = new QMovie(":/photo/woniu.gif");
-    ui->label_woniu->setMovie(gif3);
+    QMovie *gif3 = new QMovie(":/photo/flower.gif");
+    ui->label_flower->setMovie(gif3);
     gif3->setScaledSize(QSize(35,35));
     gif3->start();
 }
@@ -619,7 +638,6 @@ QString MainWindow::get_music_info()
 /*扑克图片处理*/
 QString MainWindow::poke(int num)
 {
-    srand( (unsigned)time(NULL) ); // 设置随机序列的种子
     switch(num)
     {
 

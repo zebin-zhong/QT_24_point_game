@@ -180,7 +180,7 @@
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_flower">
+   <widget class="QLabel" name="label_rooster">
     <property name="geometry">
      <rect>
       <x>728</x>
@@ -189,21 +189,14 @@
       <height>72</height>
      </rect>
     </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::PreventContextMenu</enum>
+    </property>
     <property name="text">
      <string>鸡哥</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_pea">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>20</y>
-      <width>72</width>
-      <height>72</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
     </property>
    </widget>
    <widget class="QPushButton" name="but_set">
@@ -230,6 +223,9 @@
       <width>28</width>
       <height>28</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">border-image: url(:/photo/music_close.png);</string>
@@ -347,6 +343,9 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">
 border-image: url(:/photo/help.png);</string>
@@ -355,7 +354,7 @@ border-image: url(:/photo/help.png);</string>
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_woniu">
+   <widget class="QLabel" name="label_flower">
     <property name="geometry">
      <rect>
       <x>70</x>
@@ -365,7 +364,7 @@ border-image: url(:/photo/help.png);</string>
      </rect>
     </property>
     <property name="text">
-     <string>woniu</string>
+     <string>向日葵</string>
     </property>
    </widget>
    <widget class="QSlider" name="slider_music">
@@ -494,6 +493,9 @@ QSlider::handle:horizontal:disabled {
       <height>22</height>
      </rect>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
 background-color: rgb(170,170,255);
@@ -516,6 +518,9 @@ border-style:outset;
       <width>22</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -540,6 +545,9 @@ border-style:outset;
       <height>22</height>
      </rect>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
 background-color: rgb(170,170,255);
@@ -561,6 +569,9 @@ border-style:outset;
       <height>20</height>
      </rect>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="mouseTracking">
      <bool>true</bool>
     </property>
@@ -574,12 +585,36 @@ border-style:outset;
      <string notr="true">border-image: url(:/photo/music_file.png);</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_text">
+    <property name="geometry">
+     <rect>
+      <x>600</x>
+      <y>30</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>华文隶书</family>
+      <pointsize>6</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/photo/dialog_box.png);</string>
+    </property>
+    <property name="text">
+     <string>     生命不息，奋斗不止！</string>
+    </property>
+   </widget>
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
-      <x>-2</x>
-      <y>1</y>
-      <width>862</width>
+      <x>0</x>
+      <y>0</y>
+      <width>861</width>
       <height>458</height>
      </rect>
     </property>
@@ -603,8 +638,7 @@ border-style:outset;
    <zorder>num2</zorder>
    <zorder>num3</zorder>
    <zorder>num4</zorder>
-   <zorder>label_flower</zorder>
-   <zorder>label_pea</zorder>
+   <zorder>label_rooster</zorder>
    <zorder>but_set</zorder>
    <zorder>but_music</zorder>
    <zorder>but2</zorder>
@@ -612,7 +646,7 @@ border-style:outset;
    <zorder>label0</zorder>
    <zorder>but1</zorder>
    <zorder>but_help</zorder>
-   <zorder>label_woniu</zorder>
+   <zorder>label_flower</zorder>
    <zorder>slider_music</zorder>
    <zorder>label_music_name</zorder>
    <zorder>label_music_time</zorder>
@@ -620,6 +654,7 @@ border-style:outset;
    <zorder>but_play</zorder>
    <zorder>but_next</zorder>
    <zorder>but_file</zorder>
+   <zorder>label_text</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

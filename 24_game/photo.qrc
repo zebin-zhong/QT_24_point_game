@@ -80,5 +80,7 @@
         <file>photo/music_next.png</file>
         <file>photo/last.png</file>
         <file>photo/next.png</file>
+        <file>photo/dialog_box.png</file>
+        <file>photo/flower.gif</file>
     </qresource>
 </RCC>

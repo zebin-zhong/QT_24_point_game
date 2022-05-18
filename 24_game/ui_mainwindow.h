@@ -34,8 +34,7 @@ public:
     QLabel *num2;
     QLabel *num3;
     QLabel *num4;
-    QLabel *label_flower;
-    QLabel *label_pea;
+    QLabel *label_rooster;
     QPushButton *but_set;
     QPushButton *but_music;
     QPushButton *but2;
@@ -44,7 +43,7 @@ public:
     QLabel *label0;
     QPushButton *but1;
     QPushButton *but_help;
-    QLabel *label_woniu;
+    QLabel *label_flower;
     QSlider *slider_music;
     QLabel *label_music_name;
     QLabel *label_music_time;
@@ -52,6 +51,7 @@ public:
     QPushButton *but_play;
     QPushButton *but_next;
     QPushButton *but_file;
+    QLabel *label_text;
     QFrame *frame;
     QMenuBar *menuBar;
 
@@ -114,12 +114,11 @@ public:
         num4->setObjectName(QString::fromUtf8("num4"));
         num4->setGeometry(QRect(582, 130, 81, 111));
         num4->setStyleSheet(QString::fromUtf8("border-image: url(:/photo/poke_backgrand.png);"));
-        label_flower = new QLabel(centralWidget);
-        label_flower->setObjectName(QString::fromUtf8("label_flower"));
-        label_flower->setGeometry(QRect(728, 28, 72, 72));
-        label_pea = new QLabel(centralWidget);
-        label_pea->setObjectName(QString::fromUtf8("label_pea"));
-        label_pea->setGeometry(QRect(80, 20, 72, 72));
+        label_rooster = new QLabel(centralWidget);
+        label_rooster->setObjectName(QString::fromUtf8("label_rooster"));
+        label_rooster->setGeometry(QRect(728, 28, 72, 72));
+        label_rooster->setMouseTracking(true);
+        label_rooster->setContextMenuPolicy(Qt::PreventContextMenu);
         but_set = new QPushButton(centralWidget);
         but_set->setObjectName(QString::fromUtf8("but_set"));
         but_set->setGeometry(QRect(818, 12, 28, 28));
@@ -127,6 +126,7 @@ public:
         but_music = new QPushButton(centralWidget);
         but_music->setObjectName(QString::fromUtf8("but_music"));
         but_music->setGeometry(QRect(14, 10, 28, 28));
+        but_music->setCursor(QCursor(Qt::PointingHandCursor));
         but_music->setStyleSheet(QString::fromUtf8("border-image: url(:/photo/music_close.png);"));
         but2 = new QPushButton(centralWidget);
         but2->setObjectName(QString::fromUtf8("but2"));
@@ -166,11 +166,12 @@ public:
         but_help = new QPushButton(centralWidget);
         but_help->setObjectName(QString::fromUtf8("but_help"));
         but_help->setGeometry(QRect(816, 45, 32, 31));
+        but_help->setCursor(QCursor(Qt::PointingHandCursor));
         but_help->setStyleSheet(QString::fromUtf8("\n"
 "border-image: url(:/photo/help.png);"));
-        label_woniu = new QLabel(centralWidget);
-        label_woniu->setObjectName(QString::fromUtf8("label_woniu"));
-        label_woniu->setGeometry(QRect(70, 44, 72, 51));
+        label_flower = new QLabel(centralWidget);
+        label_flower->setObjectName(QString::fromUtf8("label_flower"));
+        label_flower->setGeometry(QRect(70, 44, 72, 51));
         slider_music = new QSlider(centralWidget);
         slider_music->setObjectName(QString::fromUtf8("slider_music"));
         slider_music->setGeometry(QRect(50, 32, 151, 16));
@@ -251,6 +252,7 @@ public:
         but_last = new QPushButton(centralWidget);
         but_last->setObjectName(QString::fromUtf8("but_last"));
         but_last->setGeometry(QRect(200, 6, 22, 22));
+        but_last->setCursor(QCursor(Qt::PointingHandCursor));
         but_last->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "background-color: rgb(170,170,255);\n"
 "border-image: url(:/photo/music_last.png);\n"
@@ -262,6 +264,7 @@ public:
         but_play = new QPushButton(centralWidget);
         but_play->setObjectName(QString::fromUtf8("but_play"));
         but_play->setGeometry(QRect(230, 6, 22, 22));
+        but_play->setCursor(QCursor(Qt::PointingHandCursor));
         but_play->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "border-image: url(:/photo/music_pause_white.png);\n"
 "background-color:rgb(170,170,255);\n"
@@ -273,6 +276,7 @@ public:
         but_next = new QPushButton(centralWidget);
         but_next->setObjectName(QString::fromUtf8("but_next"));
         but_next->setGeometry(QRect(260, 6, 22, 22));
+        but_next->setCursor(QCursor(Qt::PointingHandCursor));
         but_next->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "background-color: rgb(170,170,255);\n"
 "border-image: url(:/photo/music_next.png);\n"
@@ -285,12 +289,23 @@ public:
         but_file = new QPushButton(centralWidget);
         but_file->setObjectName(QString::fromUtf8("but_file"));
         but_file->setGeometry(QRect(290, 6, 20, 20));
+        but_file->setCursor(QCursor(Qt::PointingHandCursor));
         but_file->setMouseTracking(true);
         but_file->setTabletTracking(true);
         but_file->setStyleSheet(QString::fromUtf8("border-image: url(:/photo/music_file.png);"));
+        label_text = new QLabel(centralWidget);
+        label_text->setObjectName(QString::fromUtf8("label_text"));
+        label_text->setGeometry(QRect(600, 30, 121, 31));
+        QFont font7;
+        font7.setFamily(QString::fromUtf8("\345\215\216\346\226\207\351\232\266\344\271\246"));
+        font7.setPointSize(6);
+        font7.setBold(false);
+        font7.setWeight(50);
+        label_text->setFont(font7);
+        label_text->setStyleSheet(QString::fromUtf8("border-image: url(:/photo/dialog_box.png);"));
         frame = new QFrame(centralWidget);
         frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(-2, 1, 862, 458));
+        frame->setGeometry(QRect(0, 0, 861, 458));
         frame->setStyleSheet(QString::fromUtf8("border-image: url(:/photo/456.jpg);"));
         frame->setFrameShape(QFrame::StyledPanel);
         frame->setFrameShadow(QFrame::Raised);
@@ -305,8 +320,7 @@ public:
         num2->raise();
         num3->raise();
         num4->raise();
-        label_flower->raise();
-        label_pea->raise();
+        label_rooster->raise();
         but_set->raise();
         but_music->raise();
         but2->raise();
@@ -314,7 +328,7 @@ public:
         label0->raise();
         but1->raise();
         but_help->raise();
-        label_woniu->raise();
+        label_flower->raise();
         slider_music->raise();
         label_music_name->raise();
         label_music_time->raise();
@@ -322,6 +336,7 @@ public:
         but_play->raise();
         but_next->raise();
         but_file->raise();
+        label_text->raise();
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 860, 25));
@@ -345,8 +360,7 @@ public:
         num2->setText(QString());
         num3->setText(QString());
         num4->setText(QString());
-        label_flower->setText(QCoreApplication::translate("MainWindow", "\351\270\241\345\223\245", nullptr));
-        label_pea->setText(QString());
+        label_rooster->setText(QCoreApplication::translate("MainWindow", "\351\270\241\345\223\245", nullptr));
         but_set->setText(QString());
         but_music->setText(QString());
         but2->setText(QCoreApplication::translate("MainWindow", "\347\241\256\350\256\244", nullptr));
@@ -354,7 +368,7 @@ public:
         label0->setText(QCoreApplication::translate("MainWindow", " \357\274\232", nullptr));
         but1->setText(QCoreApplication::translate("MainWindow", "\345\274\200\345\247\213\346\270\270\346\210\217", nullptr));
         but_help->setText(QString());
-        label_woniu->setText(QCoreApplication::translate("MainWindow", "woniu", nullptr));
+        label_flower->setText(QCoreApplication::translate("MainWindow", "\345\220\221\346\227\245\350\221\265", nullptr));
         label_music_name->setText(QCoreApplication::translate("MainWindow", "music info", nullptr));
         label_music_time->setText(QCoreApplication::translate("MainWindow", "00:00/00:00", nullptr));
         but_last->setText(QString());
@@ -362,6 +376,7 @@ public:
 #if QT_CONFIG(tooltip)
         but_file->setToolTip(QString());
 #endif // QT_CONFIG(tooltip)
+        label_text->setText(QCoreApplication::translate("MainWindow", "     \347\224\237\345\221\275\344\270\215\346\201\257\357\274\214\345\245\213\346\226\227\344\270\215\346\255\242\357\274\201", nullptr));
     } // retranslateUi
 
 };

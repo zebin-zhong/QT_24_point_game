@@ -130,6 +130,7 @@ debug/qrc_photo.cpp: photo.qrc \
 		photo/woniu.gif \
 		photo/music_play_black.png \
 		photo/music_last.png \
+		photo/flower.gif \
 		photo/111.jpg \
 		photo/456.jpg \
 		photo/music_file.png \
@@ -142,6 +143,7 @@ debug/qrc_photo.cpp: photo.qrc \
 		photo/help.tga \
 		photo/finger_1.png \
 		photo/finger_2.png \
+		photo/dialog_box.png \
 		photo/button_box.png \
 		photo/poke/23.jpg \
 		photo/poke/48.jpg \
