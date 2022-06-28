@@ -428,10 +428,10 @@ void MainWindow::mouseMoveEvent(QMouseEvent* event)
 /*默认播放背景音乐*/
 void MainWindow::music_play()
 {
-    musicList->addMedia(QUrl::fromLocalFile("C:\\Users\\zhongzebin\\Desktop\\QT_practice\\24_game\\music\\Taylor Swift - Love Story.mp3"));  //添加音乐列表
-    musicList->addMedia(QUrl::fromLocalFile("C:\\Users\\zhongzebin\\Desktop\\QT_practice\\24_game\\music\\yinghuacao.mp3"));
-    musicList->addMedia(QUrl::fromLocalFile("C:\\Users\\zhongzebin\\Desktop\\QT_practice\\24_game\\music\\background_music.mp3"));
-    musicList->addMedia(QUrl::fromLocalFile("C:\\Users\\zhongzebin\\Desktop\\QT_practice\\24_game\\music\\Danny Avila - End Of The Night (Explicit).mp3"));
+    musicList->addMedia(QUrl::fromLocalFile(QDir::toNativeSeparators(QCoreApplication::applicationDirPath())+"\\music\\Taylor Swift - Love Story.mp3"));  //添加音乐列表
+    musicList->addMedia(QUrl::fromLocalFile(QDir::toNativeSeparators(QCoreApplication::applicationDirPath())+"\\music\\yinghuacao.mp3"));
+    musicList->addMedia(QUrl::fromLocalFile(QDir::toNativeSeparators(QCoreApplication::applicationDirPath())+"\\music\\background_music.mp3"));
+    musicList->addMedia(QUrl::fromLocalFile(QDir::toNativeSeparators(QCoreApplication::applicationDirPath())+"\\music\\Danny Avila - End Of The Night (Explicit).mp3"));
     //musicList->addMedia(QUrl::fromLocalFile(QDir::toNativeSeparators(QCoreApplication::applicationDirPath())+"\\music\\background_music.mp3"));
     musicList->setPlaybackMode(QMediaPlaylist::Loop);
 
